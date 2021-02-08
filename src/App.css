@@ -1,0 +1,31 @@
+ul {
+	display: inline-block;
+}
+
+.App {
+	text-align: center;
+}
+.header {
+	width: 100%;
+	background-color: grey;
+}
+.gameContainer {
+	border: solid black;
+	display: flex;
+	height: 60vh;
+	justify-content: space-around;
+}
+.statsWindow {
+	border: solid black;
+	width: 25vw;
+	margin: 5px 5px 5px 5px;
+}
+.gameWindow {
+	border: solid black;
+	width: 40vw;
+	margin: 5px 5px 5px 5px;
+}
+.inventoryWindow {
+	border: solid black;
+	margin: 5px 5px 5px 5px;
+}
