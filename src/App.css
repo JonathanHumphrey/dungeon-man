@@ -26,6 +26,25 @@ ul {
 	margin: 5px 5px 5px 5px;
 }
 .inventoryWindow {
-	border: solid black;
+	border: 10px solid transparent;
+	padding: 15px;
 	margin: 5px 5px 5px 5px;
+	border-image: url(Images/images.jpg) 30 round;
+	background-image: url(Images/burlap-background.jpg);
+}
+.inv {
+	cursor: pointer;
+}
+.actualInventory {
+	background-color: rgba(179, 179, 179, 0.575);
+}
+.del {
+	border: none;
+	background-color: none;
+	background: none;
+	outline: none;
+	font-size: 20px;
+}
+.del:active {
+	transform: translateY(4px);
 }
