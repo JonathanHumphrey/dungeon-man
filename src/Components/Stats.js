@@ -3,7 +3,7 @@ import useSound from 'use-sound'
 
 import zipper from '../Sounds/zipper.mp3'
 
-export default function Stats({player, inventory}) {
+export default function Stats({player, inventory, setInventory, classes, charSubmit}) {
     const [show, setShow] = useState(false)
 
     
@@ -17,15 +17,27 @@ export default function Stats({player, inventory}) {
         play()
     }
 
-    const delItem = (key) => {
+    const delItem = (event) => {
+        let index = event.target.id
+        //console.log(event.target.id)
+        //console.log(inventory.items[event.target.id])
+        inventory.items.splice(index, 1)
         console.log(inventory.items)
-        //delete inventory.items
+        setInventory({
+            ...inventory,
+        })
     }
+    
     return (
         <div className='statsWindow'>
             <h4>Player Stats</h4>
             <p>Name: {player.name}</p>
             <p>Class: {player.class}</p>
+            <div className='health-damage'>
+                <p>Health Points: {charSubmit ? classes[player.class].healthPoints : null} </p>
+                <p>Base Damage: {charSubmit ? classes[player.class].damage : null}  </p>
+            </div>
+            
 
             <div className='inventoryWindow'>
                 <div className='actualInventory'>
@@ -37,7 +49,7 @@ export default function Stats({player, inventory}) {
                             {inventory.items.map((item, index) => (
                                 <ul>
                                     <li key={index}>{item}
-                                        <button className='del' onClick={delItem} key={index}>x</button>
+                                        <button className='del' onClick={delItem} id={index}>x</button>
                                     </li>
                                 </ul>
                             ))}

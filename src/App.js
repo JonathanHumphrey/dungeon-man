@@ -3,15 +3,29 @@ import './App.css';
 
 //Component Imports
 import Header from './Components/Header'
+import CharacterCreate from './Components/CharacterCreate'
 import GameWindow from './Components/GameWindow'
 import Stats from './Components/Stats'
 
 function App() {
-
+  const [charSubmit, setCharSubmit] = useState(false)
   const [player, setPlayer] = useState({
-    name: 'Jimmy',
-    class: 'Wizard',
-    healthPoints: 5
+    name: '',
+    class: '',
+  })
+  const [classes, setClasses] = useState({
+    Wizard: {
+      healthPoints: 8,
+      damage: 9
+    },
+    Fighter: {
+      healthPoints: 10,
+      damage: 6
+    },
+    Rouge: {
+      healthPoints: 8,
+      damage: 12
+    }
   })
   const [inventory, setInventory] = useState({
     gold: 0,
@@ -21,10 +35,18 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <CharacterCreate
+        player={player}
+        setPlayer={setPlayer}
+        setCharSubmit={setCharSubmit}
+      />
       <div className='gameContainer'>
         <Stats 
           player={player}
           inventory={inventory}
+          setInventory={setInventory}
+          classes={classes}
+          charSubmit={charSubmit}
         />
         <GameWindow />
       </div>

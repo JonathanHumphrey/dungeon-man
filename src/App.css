@@ -48,3 +48,13 @@ ul {
 .del:active {
 	transform: translateY(4px);
 }
+.characterCreate {
+}
+.lootWindow {
+	border: black solid;
+	margin: 5px 5px 5px 5px;
+}
+.health-damage {
+	border: black solid;
+	margin: 5px 5px 5px 5px;
+}
