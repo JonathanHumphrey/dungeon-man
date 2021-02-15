@@ -34,8 +34,8 @@ export default function Stats({player, inventory, setInventory, classes, charSub
             <p>Name: {player.name}</p>
             <p>Class: {player.class}</p>
             <div className='health-damage'>
-                <p>Health Points: {charSubmit ? classes[player.class].healthPoints : null} </p>
-                <p>Base Damage: {charSubmit ? classes[player.class].damage : null}  </p>
+                <p>Health Points: {charSubmit ? player.healthPoints : null} </p>
+                <p>Base Damage: {charSubmit ? player.damage : null}  </p>
             </div>
             
 

@@ -49,8 +49,14 @@ ul {
 	transform: translateY(4px);
 }
 .characterCreate {
+	border: black solid;
+	margin: 5px 5px 5px 5px;
 }
 .lootWindow {
+	border: black solid;
+	margin: 5px 5px 5px 5px;
+}
+.combatWindow {
 	border: black solid;
 	margin: 5px 5px 5px 5px;
 }

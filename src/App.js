@@ -12,6 +12,8 @@ function App() {
   const [player, setPlayer] = useState({
     name: '',
     class: '',
+    healthPoints: 0,
+    damage: 0
   })
   const [classes, setClasses] = useState({
     Wizard: {
@@ -39,6 +41,7 @@ function App() {
         player={player}
         setPlayer={setPlayer}
         setCharSubmit={setCharSubmit}
+        classes={classes}
       />
       <div className='gameContainer'>
         <Stats 
@@ -48,7 +51,9 @@ function App() {
           classes={classes}
           charSubmit={charSubmit}
         />
-        <GameWindow />
+        <GameWindow
+          player={player}
+        />
       </div>
     </div>
   );

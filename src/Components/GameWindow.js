@@ -1,12 +1,17 @@
 import React from 'react'
 
+import CombatWindow from './CombatWindow'
 import LootWindow from './LootWindow'
 
-export default function GameWindow() {
+export default function GameWindow({player}) {
     return (
         <div className='gameWindow'>
             poop
-             <LootWindow />
+            <CombatWindow
+                player={player}
+            />
+            <LootWindow />
+            
         </div>
     )
 }
