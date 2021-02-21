@@ -2,20 +2,25 @@ import React, {useState} from 'react'
 
 import Enemies from '../Data/Enemies'
 //TODO: This is where the combat will take place, this will handle crits/ damage / defense (maybe)
-export default function CombatWindow({player}) {
+export default function CombatWindow({ player, enemyDefeated, setEnemyDefeated }) {
 
     const [currentEnemy, setCurrentEnemy] = useState(Enemies[0].Goblin)
     
 
     const useAttack = () => {
-        console.log(player)
+        /* console.log(player)
         console.log(currentEnemy)
+        console.log(Enemies[0].Goblin) */
         let damage = player.damage[0]
-        let damageDone = currentEnemy.healthPoints - player.damage
-        console.log(damageDone)
+        let hpLeft = currentEnemy.healthPoints - player.damage
+        if (hpLeft <= 0) {
+            hpLeft = 0
+            setEnemyDefeated(true)
+        }
+        console.log(hpLeft)
         setCurrentEnemy({
             ...currentEnemy,
-            healthPoints: [damageDone]
+            healthPoints: hpLeft
         })
     }
 
@@ -25,8 +30,8 @@ export default function CombatWindow({player}) {
              <hr />
             <div>
                 <p>Type: {currentEnemy.type}</p>
-                <p>Health Points: {Enemies[0].Goblin.healthPoints}</p>
-                <p>Base Damage: {Enemies[0].Goblin.damage}</p>
+                <p>Health Points: {currentEnemy.healthPoints !== 0 ? currentEnemy.healthPoints : 'Dead'}</p>
+                <p>Base Damage: {currentEnemy.damage}</p>
             </div>
             <hr />
             <button onClick={useAttack}>Attack!</button>

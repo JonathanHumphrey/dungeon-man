@@ -8,7 +8,10 @@ import GameWindow from './Components/GameWindow'
 import Stats from './Components/Stats'
 
 function App() {
+  //Boolean flags for commpunication between components
   const [charSubmit, setCharSubmit] = useState(false)
+  const [enemyDefeated, setEnemyDefeated] = useState(false)
+
   const [player, setPlayer] = useState({
     name: '',
     class: '',
@@ -53,6 +56,8 @@ function App() {
         />
         <GameWindow
           player={player}
+          enemyDefeated={enemyDefeated}
+          setEnemyDefeated={setEnemyDefeated}
         />
       </div>
     </div>

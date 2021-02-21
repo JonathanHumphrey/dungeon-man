@@ -3,14 +3,18 @@ import React from 'react'
 import CombatWindow from './CombatWindow'
 import LootWindow from './LootWindow'
 
-export default function GameWindow({player}) {
+export default function GameWindow({player, enemyDefeated, setEnemyDefeated}) {
     return (
         <div className='gameWindow'>
-            poop
+            <h4>Combat</h4>
             <CombatWindow
                 player={player}
+                enemyDefeated={enemyDefeated}
+                setEnemyDefeated={setEnemyDefeated}
             />
-            <LootWindow />
+            <LootWindow
+                enemyDefeated={enemyDefeated}
+            />
             
         </div>
     )
