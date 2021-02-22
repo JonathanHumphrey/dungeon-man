@@ -11,27 +11,16 @@ function App() {
   //Boolean flags for commpunication between components
   const [charSubmit, setCharSubmit] = useState(false)
   const [enemyDefeated, setEnemyDefeated] = useState(false)
-
+  
+  // Player object that is altered by the CharacterCreate.js component
   const [player, setPlayer] = useState({
     name: '',
     class: '',
     healthPoints: 0,
     damage: 0
   })
-  const [classes, setClasses] = useState({
-    Wizard: {
-      healthPoints: 8,
-      damage: 9
-    },
-    Fighter: {
-      healthPoints: 10,
-      damage: 6
-    },
-    Rouge: {
-      healthPoints: 8,
-      damage: 12
-    }
-  })
+  
+  // Seperate inventory data, still tied to the player.
   const [inventory, setInventory] = useState({
     gold: 0,
     items: ['rope','lockpick']
@@ -44,20 +33,20 @@ function App() {
         player={player}
         setPlayer={setPlayer}
         setCharSubmit={setCharSubmit}
-        classes={classes}
       />
       <div className='gameContainer'>
         <Stats 
           player={player}
           inventory={inventory}
           setInventory={setInventory}
-          classes={classes}
           charSubmit={charSubmit}
         />
         <GameWindow
           player={player}
           enemyDefeated={enemyDefeated}
           setEnemyDefeated={setEnemyDefeated}
+          inventory={inventory}
+          setInventory={setInventory}
         />
       </div>
     </div>

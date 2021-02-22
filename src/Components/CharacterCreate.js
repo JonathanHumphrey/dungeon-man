@@ -4,13 +4,20 @@ import Classes from '../Data/Classes'
 
 export default function CharacterCreate({player,setPlayer, setCharSubmit, classes}) {
     
+
+    //----------------------------------------------------------------------------//
+    // Creates a character with a Name and Class
+    // Uses a kind-of faux form in order to grab all this data at once 
+    // Note: a little bit hard-coded but there are very limited number of classes
+    // TODO: 
+    // -Handle item looting (possible refactoring)
     const createClass = (event) => {
         event.preventDefault()
         setCharSubmit(true)
         
         let name = event.target[0].value
         let playerClass = event.target[1].value
-        console.log(Classes[0].Wizard.damage)
+        
         if (playerClass === 'Wizard') {
             setPlayer({
                 name: [name],
@@ -35,7 +42,7 @@ export default function CharacterCreate({player,setPlayer, setCharSubmit, classe
         }
         
     }
-
+    // This is just for some console logging to keep track
     const handleChange = (event) => {
         console.log(event.target.name)
         console.log(event.target.value)

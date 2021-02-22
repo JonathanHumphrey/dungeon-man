@@ -1,16 +1,17 @@
 import React, {useState} from 'react'
 
 import Enemies from '../Data/Enemies'
-//TODO: This is where the combat will take place, this will handle crits/ damage / defense (maybe)
+//TODO: handle proficiency/upgrades (item shop maybe??)
 export default function CombatWindow({ player, enemyDefeated, setEnemyDefeated }) {
-
+    // Seperates the enemy from the Enemies.js object file so there is no mutation of variables 
     const [currentEnemy, setCurrentEnemy] = useState(Enemies[0].Goblin)
     
-
+    //--------------------------------------------------------------------------//
+    // Uses the player's attack power to deduct Hp from the enemy
+    // Grabs player damage data from the player object        
+    // TODO: 
+    // - proficiency stats (+1 or +2 possibly though an item shop of some type)
     const useAttack = () => {
-        /* console.log(player)
-        console.log(currentEnemy)
-        console.log(Enemies[0].Goblin) */
         let damage = player.damage[0]
         let hpLeft = currentEnemy.healthPoints - player.damage
         if (hpLeft <= 0) {

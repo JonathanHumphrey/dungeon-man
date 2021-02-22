@@ -4,25 +4,29 @@ import useSound from 'use-sound'
 import zipper from '../Sounds/zipper.mp3'
 
 export default function Stats({player, inventory, setInventory, classes, charSubmit}) {
+    
+    // Boolean flag to show (or not) the expanded inventory
     const [show, setShow] = useState(false)
 
-    
+    //Handles the playing of the zipper sound on inventory open
     const [play] = useSound(zipper, {
         volume: 0.15,
     })
     
+    //Uses the show flag to toggle the inventory screen
     const toggleShow = () => {
         setShow(!show)
-        console.log(zipper)
         play()
     }
 
+    //------------------------------------------------------------------------//
+    // Deletes the selected item from the inventory
+    //   grabs the index of the item in the inventory.items array and splices it out    
+    // TODO: 
+    // -make it 'drop' the item into the loot window to prevent idiocy
     const delItem = (event) => {
         let index = event.target.id
-        //console.log(event.target.id)
-        //console.log(inventory.items[event.target.id])
         inventory.items.splice(index, 1)
-        console.log(inventory.items)
         setInventory({
             ...inventory,
         })

@@ -14,6 +14,7 @@ ul {
 	display: flex;
 	height: 60vh;
 	justify-content: space-around;
+	margin: 5px 5px 5px 5px;
 }
 .statsWindow {
 	border: solid black;
